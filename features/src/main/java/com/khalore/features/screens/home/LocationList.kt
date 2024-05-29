@@ -7,7 +7,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.khalore.core.model.GpsLocation
+import com.khalore.core.common.model.GpsLocation
 import com.khalore.features.components.location.LocationItem
 
 @Composable

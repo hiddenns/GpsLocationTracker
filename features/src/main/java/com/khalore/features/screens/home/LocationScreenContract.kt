@@ -1,10 +1,10 @@
 package com.khalore.features.screens.home
 
-import com.khalore.core.base.ViewEvent
-import com.khalore.core.base.ViewSideEffect
-import com.khalore.core.base.ViewState
-import com.khalore.core.model.GpsLocation
-import com.khalore.core.base.MviState as BaseState
+import com.khalore.core.common.base.ViewEvent
+import com.khalore.core.common.base.ViewSideEffect
+import com.khalore.core.common.base.ViewState
+import com.khalore.core.common.model.GpsLocation
+import com.khalore.core.common.base.MviState as BaseState
 
 class LocationScreenContract {
     sealed class Event : ViewEvent {

@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.khalore.core.ext.TimeFormatter
-import com.khalore.core.model.GpsLocation
+import com.khalore.core.common.ext.TimeFormatter
+import com.khalore.core.common.model.GpsLocation
 
 @Composable
 fun LocationItem(location: GpsLocation) {

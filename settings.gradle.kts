@@ -15,5 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "GpsLocation"
 include(":app")
-include(":common")
+include(":shared")
 include(":features")

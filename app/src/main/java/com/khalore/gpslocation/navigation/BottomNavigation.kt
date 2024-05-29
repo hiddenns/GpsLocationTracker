@@ -3,8 +3,6 @@ package com.khalore.gpslocation.navigation
 import android.annotation.SuppressLint
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -19,13 +17,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.khalore.features.screens.home.LocationsScreen
-import com.khalore.features.screens.settings.SettingsScreen
-import com.khalore.features.screens.shop.ShopScreen
 
 sealed class Screen(val route: String, val name: String, val icon: ImageVector) {
     data object Home: Screen(route = "home_screen", name = "Home", icon = Icons.Default.Home)
-    data object Profile: Screen(route = "profile_screen", name = "Profile", icon = Icons.Default.Person)
-    data object Settings: Screen(route = "settings_screen", name = "Settings", icon = Icons.Default.Settings)
 }
 
 @Composable
@@ -40,17 +34,6 @@ fun SetupNavGraph(navController: NavHostController) {
             LocationsScreen()
         }
 
-        composable(
-            route = Screen.Profile.route
-        ) {
-            ShopScreen()
-        }
-
-        composable(
-            route = Screen.Settings.route
-        ) {
-            SettingsScreen()
-        }
     }
 }
 
@@ -58,9 +41,7 @@ fun SetupNavGraph(navController: NavHostController) {
 @Composable
 fun MyBottomBar(navController: NavHostController) {
     val navigationItems = listOf(
-        Screen.Home,
-        Screen.Profile,
-        Screen.Settings
+        Screen.Home
     )
 
     var selectedScreen by remember {

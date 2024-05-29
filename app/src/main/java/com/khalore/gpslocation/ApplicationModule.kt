@@ -1,6 +1,6 @@
 package com.khalore.gpslocation
 
-import com.khalore.core.notification.NotificationFactory
+import com.khalore.core.common.notification.NotificationFactory
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

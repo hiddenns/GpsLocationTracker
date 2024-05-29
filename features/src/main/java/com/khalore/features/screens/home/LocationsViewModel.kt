@@ -1,10 +1,10 @@
 package com.khalore.features.screens.home
 
 import androidx.lifecycle.viewModelScope
-import com.khalore.core.base.BaseViewModel
-import com.khalore.core.base.MviState
-import com.khalore.core.model.GpsLocation
-import com.khalore.core.usecase.GetAllLocationsUseCase
+import com.khalore.core.common.base.BaseViewModel
+import com.khalore.core.common.base.MviState
+import com.khalore.core.common.model.GpsLocation
+import com.khalore.core.usecase.location.GetAllLocationsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

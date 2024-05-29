@@ -1,7 +1,5 @@
 package com.khalore.gpslocation
 
-import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
@@ -18,9 +16,9 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.khalore.core.ext.getLocationPermissions
-import com.khalore.core.ext.isAllGranted
-import com.khalore.core.ext.isGPSEnabled
+import com.khalore.core.common.ext.getLocationPermissions
+import com.khalore.core.common.ext.isAllGranted
+import com.khalore.core.common.ext.isGPSEnabled
 import com.khalore.features.location.LocationService
 import com.khalore.gpslocation.navigation.MyBottomBar
 import com.khalore.gpslocation.navigation.SetupNavGraph
