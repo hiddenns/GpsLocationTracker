@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
+import android.util.Log
 import com.google.android.gms.location.LocationServices
 import com.khalore.core.model.GpsLocation
 import com.khalore.core.notification.NotificationFactory
@@ -21,7 +22,7 @@ import javax.inject.Inject
 class LocationService : Service() {
 
     companion object {
-        private const val GET_LOCATION_DELAY = 1000L * 60 * 5
+        private const val GET_LOCATION_DELAY = 1000L * 5
         private const val NOTIFICATION_ID = 1001
     }
 
@@ -66,6 +67,7 @@ class LocationService : Service() {
         val nonNullLatitude = latitude ?: return false
         val nonNullLongitude = longitude ?: return false
 
+        Log.d("anal", "processLocation: $nonNullLongitude $nonNullLatitude")
         val gspLocation = GpsLocation(
             latitude = nonNullLatitude,
             longitude = nonNullLongitude

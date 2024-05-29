@@ -1,11 +1,14 @@
 package com.khalore.gpslocation
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -17,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.khalore.core.ext.getLocationPermissions
 import com.khalore.core.ext.isAllGranted
+import com.khalore.core.ext.isGPSEnabled
 import com.khalore.features.location.LocationService
 import com.khalore.gpslocation.navigation.MyBottomBar
 import com.khalore.gpslocation.navigation.SetupNavGraph
@@ -34,12 +38,16 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+    private val gpsSettingsLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        checkGpsEnabled()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        locationPermissionRequest.launch(
-            getLocationPermissions()
-        )
+        checkGpsEnabled()
+
         setContent {
             GpsLocationTheme {
                 Surface(
@@ -52,10 +60,33 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    private fun checkGpsEnabled() {
+        if (isGPSEnabled(this)) {
+            locationPermissionRequest.launch(getLocationPermissions())
+        } else {
+            promptEnableGPS()
+        }
+    }
+
     private fun startLocationService() {
         val serviceIntent = Intent(this, LocationService::class.java)
         startForegroundService(serviceIntent)
     }
+
+    private fun promptEnableGPS() {
+        AlertDialog.Builder(this)
+            .setTitle("Enable GPS")
+            .setMessage("GPS is required for this app. Please enable GPS to continue.")
+            .setPositiveButton("Settings") { _, _ ->
+                gpsSettingsLauncher.launch(Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS))
+            }
+            .setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+            .show()
+    }
+
 }
 
 @Composable
