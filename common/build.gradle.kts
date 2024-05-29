@@ -60,8 +60,12 @@ dependencies {
     testImplementation(libs.hilt.android.testing)
     kspTest(libs.hilt.android.compiler)
 
-    // Retrofit
+    //Retrofit
     implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.okhttp3.logging.interceptor)
+    implementation(libs.moshi)
+
 
     // Arch Components
     implementation(libs.androidx.lifecycle.runtime.compose)

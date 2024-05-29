@@ -1,5 +1,6 @@
 package com.khalore.template.navigation
 
+import android.annotation.SuppressLint
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
@@ -17,7 +18,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.khalore.features.screens.home.HomeScreen
+import com.khalore.features.screens.home.LocationsScreen
 import com.khalore.features.screens.settings.SettingsScreen
 import com.khalore.features.screens.shop.ShopScreen
 
@@ -36,7 +37,7 @@ fun SetupNavGraph(navController: NavHostController) {
         composable(
             route = Screen.Home.route
         ) {
-            HomeScreen()
+            LocationsScreen()
         }
 
         composable(
@@ -53,6 +54,7 @@ fun SetupNavGraph(navController: NavHostController) {
     }
 }
 
+@SuppressLint("RestrictedApi")
 @Composable
 fun MyBottomBar(navController: NavHostController) {
     val navigationItems = listOf(
@@ -62,7 +64,7 @@ fun MyBottomBar(navController: NavHostController) {
     )
 
     var selectedScreen by remember {
-        mutableIntStateOf(0) // or use mutableStateOf(0)
+        mutableIntStateOf(0)
     }
 
     NavigationBar {
@@ -72,7 +74,6 @@ fun MyBottomBar(navController: NavHostController) {
                 label = { Text(text = screen.name) },
                 selected = (selectedScreen == index),
                 onClick = {
-                    // this if condition keeps only one screen in the back stack
                     if (navController.currentBackStack.value.size >= 2) {
                         navController.popBackStack()
                     }

@@ -4,11 +4,11 @@ interface ViewState
 interface ViewEvent
 interface ViewSideEffect
 
-sealed class State<out T : Any> {
-    object None : State<Nothing>()
-    object Loading : State<Nothing>()
-    data class Data<C : Any>(val data: C) : State<C>()
-    data class Error(val error: Throwable) : State<Nothing>() {
+sealed class MviState<out T : Any> {
+    object None : MviState<Nothing>()
+    object Loading : MviState<Nothing>()
+    data class Data<C : Any>(val data: C) : MviState<C>()
+    data class Error(val error: Throwable) : MviState<Nothing>() {
 
         override fun equals(other: Any?): Boolean {
             if (this === other) return true

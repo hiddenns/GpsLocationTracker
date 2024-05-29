@@ -1,7 +1,7 @@
 
 object Config {
 
-    const val appId = "com.example.template"
+    const val appId = "com.khalore.template"
     const val appName = "Template"
     var archivesBaseName = "$appName-${Versions.versionName}_${Versions.versionCode})}"
 

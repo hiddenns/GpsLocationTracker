@@ -1,22 +1,20 @@
 package com.khalore.core.di
 
 
-import com.khalore.core.datasource.local.template.TemplateLocalDataSource
-import com.khalore.core.repository.template.TemplateRepositoryImpl
+import com.khalore.core.repository.location.LocationRepository
+import com.khalore.core.repository.location.LocationRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class RepositoryModule {
+interface RepositoryModule {
 
-    @Singleton
     @Binds
-    abstract fun bindsTemplateRepository(
-        templateRepository: TemplateRepositoryImpl
-    ): TemplateLocalDataSource
+    fun bindsLocationRepository(
+        locationRepository: LocationRepositoryImpl
+    ): LocationRepository
 
 }
