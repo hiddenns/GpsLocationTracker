@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.template.common"
+    namespace = "com.khalore.common"
     compileSdk = Config.Sdk.compileSdk
 
     defaultConfig {

@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Template"
+rootProject.name = "GpsLocation"
 include(":app")
 include(":common")
 include(":features")

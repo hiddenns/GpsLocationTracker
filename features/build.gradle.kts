@@ -10,7 +10,7 @@ plugins {
 
 
 android {
-    namespace = "com.example.template.features"
+    namespace = "com.khalore.features"
     compileSdk = Config.Sdk.compileSdk
 
     defaultConfig {

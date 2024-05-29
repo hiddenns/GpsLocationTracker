@@ -1,4 +1,4 @@
-package com.khalore.template
+package com.khalore.gpslocation
 
 import com.khalore.core.notification.NotificationFactory
 import dagger.Binds

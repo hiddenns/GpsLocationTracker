@@ -1,4 +1,4 @@
-package com.khalore.template.ui.theme
+package com.khalore.gpslocation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

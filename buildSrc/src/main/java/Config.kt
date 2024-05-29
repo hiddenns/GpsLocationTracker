@@ -1,8 +1,8 @@
 
 object Config {
 
-    const val appId = "com.khalore.template"
-    const val appName = "Template"
+    const val appId = "com.khalore.gpslocation"
+    const val appName = "GplLocation"
     var archivesBaseName = "$appName-${Versions.versionName}_${Versions.versionCode})}"
 
     const val isMinifyEnabled = false

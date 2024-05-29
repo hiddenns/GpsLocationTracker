@@ -1,4 +1,4 @@
-package com.khalore.template
+package com.khalore.gpslocation
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

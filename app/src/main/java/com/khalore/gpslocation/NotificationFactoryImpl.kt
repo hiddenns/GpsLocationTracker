@@ -1,4 +1,4 @@
-package com.khalore.template
+package com.khalore.gpslocation
 
 import android.app.Notification
 import android.app.NotificationChannel

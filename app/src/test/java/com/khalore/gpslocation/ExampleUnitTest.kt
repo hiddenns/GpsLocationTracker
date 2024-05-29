@@ -1,4 +1,4 @@
-package com.khalore.template
+package com.khalore.gpslocation
 
 import org.junit.Test
 

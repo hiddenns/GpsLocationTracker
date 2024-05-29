@@ -1,4 +1,4 @@
-package com.khalore.template
+package com.khalore.gpslocation
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -18,9 +18,9 @@ import androidx.navigation.compose.rememberNavController
 import com.khalore.core.ext.getLocationPermissions
 import com.khalore.core.ext.isAllGranted
 import com.khalore.features.location.LocationService
-import com.khalore.template.navigation.MyBottomBar
-import com.khalore.template.navigation.SetupNavGraph
-import com.khalore.template.ui.theme.TemplateTheme
+import com.khalore.gpslocation.navigation.MyBottomBar
+import com.khalore.gpslocation.navigation.SetupNavGraph
+import com.khalore.gpslocation.ui.theme.GpsLocationTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
             getLocationPermissions()
         )
         setContent {
-            TemplateTheme {
+            GpsLocationTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background

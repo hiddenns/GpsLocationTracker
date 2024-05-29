@@ -1,4 +1,4 @@
-package com.khalore.template.navigation
+package com.khalore.gpslocation.navigation
 
 import android.annotation.SuppressLint
 import androidx.compose.material.icons.Icons
