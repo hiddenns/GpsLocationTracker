@@ -10,7 +10,7 @@ object TimeFormatter {
 
     private val formatHhMmDdMmYyyy = SimpleDateFormat(TIME_DATE_PATTERN, Locale.getDefault())
 
-    fun formatHhMmDdMmYyyy(timeMillis: Long) =
+    fun formatHhMmDdMmYyyy(timeMillis: Long): String =
         formatHhMmDdMmYyyy.format(timeMillis)
 
 }

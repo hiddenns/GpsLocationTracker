@@ -2,8 +2,6 @@ package com.khalore.core.ext
 
 import android.Manifest
 import android.os.Build
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.fragment.app.Fragment
 
 fun getLocationPermissions() = when {
     Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q -> arrayOf(

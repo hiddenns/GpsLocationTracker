@@ -1,7 +1,6 @@
 package com.khalore.core.usecase
 
 import com.khalore.core.di.IODispatcher
-import com.khalore.core.model.GpsLocation
 import com.khalore.core.repository.location.LocationRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
