@@ -17,6 +17,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
+import com.khalore.core.ext.getLocationPermissions
 import com.khalore.core.ext.isAllGranted
 import com.khalore.features.location.LocationService
 import com.khalore.template.navigation.MyBottomBar
@@ -33,27 +34,13 @@ class MainActivity : ComponentActivity() {
         if (permissions.isAllGranted()) {
             startLocationService()
         }
-
-//        when {
-//            permissions.getOrDefault(android.Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
-//                // Precise location access granted.
-//            }
-//            permissions.getOrDefault(android.Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
-//                // Only approximate location access granted.
-//            } else -> {
-//            // No location access granted.
-//        }
-//        }
     }
 
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         locationPermissionRequest.launch(
-            arrayOf(
-                android.Manifest.permission.ACCESS_FINE_LOCATION,
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
-            )
+            getLocationPermissions()
         )
         setContent {
             TemplateTheme {

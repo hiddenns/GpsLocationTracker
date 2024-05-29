@@ -5,25 +5,15 @@ import android.os.Build
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 
-// TODO location
-fun getReadExternalStoragePermissions() = when {
-    Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU -> arrayOf(
-        Manifest.permission.READ_MEDIA_AUDIO,
-        Manifest.permission.READ_MEDIA_IMAGES,
-        Manifest.permission.ACCESS_MEDIA_LOCATION
-    )
-    Build.VERSION.SDK_INT == Build.VERSION_CODES.Q -> arrayOf(
-        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.ACCESS_MEDIA_LOCATION
-    )
-    Build.VERSION.SDK_INT <= Build.VERSION_CODES.Q -> arrayOf(
-        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        Manifest.permission.READ_EXTERNAL_STORAGE,
+fun getLocationPermissions() = when {
+    Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q -> arrayOf(
+        Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.ACCESS_COARSE_LOCATION,
+        Manifest.permission.ACCESS_BACKGROUND_LOCATION
     )
     else -> arrayOf(
-        Manifest.permission.READ_EXTERNAL_STORAGE,
-        Manifest.permission.ACCESS_MEDIA_LOCATION
+        Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.ACCESS_COARSE_LOCATION
     )
 }
 
@@ -40,16 +30,6 @@ fun Map<String, Boolean>.findNotGrantedPermissions() = map {
         it.key
     else null
 }.filterNotNull().toSet()
-
-fun Fragment.getReadFilesPermissionsLauncher(callback: PermissionCallback) =
-    registerForActivityResult(
-        ActivityResultContracts.RequestMultiplePermissions()
-    ) { result ->
-        if (result.isAllGranted())
-            callback.onAllGranted()
-        else
-            callback.onNotGranted(result.findNotGrantedPermissions())
-    }
 
 interface PermissionCallback {
     fun onAllGranted()
