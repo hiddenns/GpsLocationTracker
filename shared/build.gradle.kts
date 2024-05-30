@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.khalore.common"
+    namespace = "com.khalore.shared"
     compileSdk = Config.Sdk.compileSdk
 
     defaultConfig {
